@@ -12,5 +12,27 @@
 */
 
 Route::get('/', function () {
-    return view('frontend.master');
+    return view('frontend.home.home');
+});
+
+
+
+Route::get('/post', function () {
+    return view('frontend.post.post-details');
+});
+
+
+
+Route::get('/login', function () {
+    return view('frontend.auth.login');
+});
+
+
+
+Route::get('/register', function () {
+    return view('frontend.auth.registration');
+});
+
+Route::get('/contact', function () {
+    return view('frontend.contact.contact');
 });
