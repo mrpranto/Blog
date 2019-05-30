@@ -6,7 +6,7 @@
 
     @foreach(\App\Models\Category::orderBy('id','desc')->get() as $category)
 
-    <a href="#" class="list-group-item list-group-item-action">
+    <a href="{{ url('/category/'.$category->slug) }}" class="list-group-item list-group-item-action">
         <i class="fa fa-angle-double-right color"></i>&nbsp;&nbsp; {{ $category->name }}
     </a>
 

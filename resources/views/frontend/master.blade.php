@@ -53,7 +53,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -98,8 +98,8 @@
 
      @else
 
-        <div class="row p-4">
 
+        <div class="row p-4">
 
             <div class="col-md-8">
 
@@ -110,7 +110,7 @@
 
             <div class="col-md-4">
 
-                {{--@include('frontend.inc.categories')--}}
+                @include('frontend.inc.categories')
 
             </div>
 

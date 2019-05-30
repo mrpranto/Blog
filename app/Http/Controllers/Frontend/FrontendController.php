@@ -14,7 +14,7 @@ class FrontendController extends Controller
     public function index(){
 
         $data = [];
-        $data['postes'] = Post::with('category','user')->orderBy('id','desc')->paginate(10);
+        $data['postes'] = Post::with('category','user')->orderBy('id','desc')->paginate(7);
         return view('frontend.home.home',$data);
 
     }
@@ -29,6 +29,17 @@ class FrontendController extends Controller
         return view('frontend.post.post-details',$data);
 
     }
+
+    public function category_product($slug){
+
+        $data = [];
+        $data['category'] = Category::where('slug',$slug)->first();
+        $data['postes'] = Post::with('category','user')->where('category_id',$data['category']['id'])->paginate(5);
+
+        return view('frontend.category.category_post',$data);
+
+    }
+
 
 
 }

@@ -16,6 +16,8 @@ Route::namespace('Frontend')->group(function (){
     Route::get('/', 'FrontendController@index')->name('home');
     Route::get('/{slug}', 'FrontendController@post_details');
 
+    Route::get('/category/{slug}', 'FrontendController@category_product');
+
 });
 
 

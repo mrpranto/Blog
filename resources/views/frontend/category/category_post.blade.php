@@ -1,14 +1,16 @@
 @extends("frontend.master")
 
-@section("title","Home")
+@section("title",$category->name)
 
 @section("content")
 
 
+<h4 class="text-center mb-4">{{ $category->name }}</h4>
 
-    @foreach($postes as $post)
 
-        <div class="card mb-4">
+@foreach($postes as $post)
+
+    <div class="card mb-4">
 
         <div class="hover01 column">
             <div>
@@ -39,12 +41,23 @@
 
     </div>
 
-    @endforeach
+@endforeach
 
 
+@if($postes->count() == 0)
 
+    <div class="card p-5 text-center">
+        <h5 class="text-danger">No Post found in this Category !</h5>
+    </div>
+
+@endif
+
+
+@if($postes->count() > 5)
 
     @include('frontend.inc.pagination')
+
+@endif
 
 
 
