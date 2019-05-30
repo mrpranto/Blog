@@ -7,16 +7,25 @@
 
 
 
-    <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
 
-            <div class="card p-4">
+    <div class="card p-4 mt-5">
 
-                <form action="/action_page.php">
+        <div class="row">
+
+            <div class="col-sm-6 pt-3">
+                <div class="jumbotron">
+                    <strong>Hello Viewers,</strong>
+                    <p> If you want to post some blog and comment on the post. Please register here for login. After login you can create post and comment. </p>
+
+                </div>
+
+            </div>
+            <div class="col-sm-6 pt-3">
+
+                <form action="">
                     <div class="form-group">
                         <label for="email">Name</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" id="email">
                     </div>
 
                     <div class="form-group">
@@ -29,22 +38,17 @@
                         <input type="password" class="form-control" id="email">
                     </div>
 
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm btn-block">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </div>
 
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-registered"></i> Register
-                    </button>
                 </form>
 
             </div>
-
         </div>
-        <div class="col-sm-2"></div>
     </div>
-
-
-
-
-
 
 
 

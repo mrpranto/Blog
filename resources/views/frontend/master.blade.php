@@ -61,7 +61,7 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item @if(Request::is('/')) active @endif">
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fa fa-home"></i> Home
                     </a>
@@ -74,14 +74,14 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item @if(Request::is('login')) active @endif">
+                    <a class="nav-link" href="{{ route('login') }}">
                         <i class="fa fa-sign-in-alt"></i>  Login
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-registered"></i>   Signup
+                <li class="nav-item @if(Request::is('register')) active @endif">
+                    <a class="nav-link " href="{{ route('register') }}">
+                        <i class="fa fa-registered"></i>   Registration
                     </a>
                 </li>
             </ul>
