@@ -11,6 +11,37 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::namespace('Frontend')->group(function (){
+
+    Route::get('/', 'FrontendController@index')->name('home');
+    Route::get('/{slug}', 'FrontendController@post_details');
+
+    Route::get('/category/{slug}', 'FrontendController@category_product');
+
+});
+
+
+
+
+
+
+
+Route::get('/post', function () {
+    return view('frontend.post.post-details');
+});
+
+
+
+Route::get('/login', function () {
+    return view('frontend.auth.login');
+});
+
+
+
+Route::get('/register', function () {
+    return view('frontend.auth.registration');
+});
+
+Route::get('/contact', function () {
+    return view('frontend.contact.contact');
 });
