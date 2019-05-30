@@ -14,18 +14,19 @@ class FrontendController extends Controller
     public function index(){
 
         $data = [];
-        $data['postes'] = Post::orderBy('id','desc')->paginate(10);
+        $data['postes'] = Post::with('category','user')->orderBy('id','desc')->paginate(10);
         return view('frontend.home.home',$data);
 
     }
 
     public function post_details($slug){
 
-        $single_post = Post::where('slug',$slug)->first();
-        $single_post->views = $single_post->views + 1;
-        $single_post->save();
+        $data = [];
+        $data['single_post'] = Post::with('category','user')->where('slug',$slug)->first();
+        $data['single_post']->views = $data['single_post']->views + 1;
+        $data['single_post']->save();
 
-        return view('frontend.post.post-details',compact('single_post'));
+        return view('frontend.post.post-details',$data);
 
     }
 

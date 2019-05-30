@@ -1,6 +1,6 @@
 @extends("frontend.master")
 
-@section("title","Post Title")
+@section("title", $single_post->title)
 
 @section("content")
 
