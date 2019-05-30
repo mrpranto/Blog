@@ -7,7 +7,7 @@ $factory->define(\App\Models\Post::class, function (Faker $faker) {
         'user_id' => \App\Models\User::all()->random()->id,
         'category_id' => \App\Models\Category::all()->random()->id,
         'title' => $faker->jobTitle,
-        'description' => $faker->realText(),
-        'image' => $faker->imageUrl(),
+        'description' => $faker->realText($maxNbChars = 800),
+        'image' => $faker->imageUrl($width = 900, $height = 480),
     ];
 });

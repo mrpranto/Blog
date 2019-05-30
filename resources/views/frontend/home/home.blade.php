@@ -4,13 +4,16 @@
 
 @section("content")
 
-    <!-- Blog Post -->
-    <div class="card mb-4">
+
+
+    @foreach($postes as $post)
+
+        <div class="card mb-4">
 
         <div class="hover01 column">
             <div>
                 <figure>
-                    <a href=""><img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""></a>
+                    <a href="{{ url('/'.$post->slug) }}"><img class="img-fluid rounded" src="{{ $post->image }}" alt=""></a>
                 </figure>
             </div>
         </div>
@@ -18,121 +21,31 @@
 
         <div class="card-body">
 
-            <h2 class="card-title">Post Title</h2>
+            <a href="{{ url('/'.$post->slug) }}" class="text-decoration-none text-dark"> <h2 class="card-title">{{ $post->title }}</h2> </a>
             <p>
-                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; Pranto &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-calendar color"></i>&nbsp; January 1, 2018 at 12:00 PM &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-globe color"></i>&nbsp; PHP &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-eye color"></i>&nbsp; 130
+                <i class="fa fa-user" style="color: #aa0000;"></i>&nbsp; {{ $post->user->name }} &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-calendar"></i>&nbsp; {{ \Carbon\Carbon::parse($post->created_at)->format('M j, Y, g:i A')  }} &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-globe"></i>&nbsp; {{ $post->category->name }} &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-eye"></i>&nbsp; {{ $post->views }}&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-comment"></i>&nbsp; {{ $post->comments }}
 
             </p>
             <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="singlePost.php" class="btn btn-primary">Read More →</a>
+            <p class="card-text">
+                {!! str_limit($post->description, $limit = 250, $end = '...') !!}}
+            </p>
+            <a href="{{ url('/'.$post->slug) }}" class="btn btn-primary btn-sm">Read More →</a>
         </div>
 
     </div>
 
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-
-        <div class="hover01 column">
-            <div>
-                <figure>
-                    <a href=""><img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""></a>
-                </figure>
-            </div>
-        </div>
+    @endforeach
 
 
-        <div class="card-body">
-
-            <h2 class="card-title">Post Title</h2>
-            <p>
-                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; Pranto &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-calendar color"></i>&nbsp; January 1, 2018 at 12:00 PM &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-globe color"></i>&nbsp; PHP &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-eye color"></i>&nbsp; 130
-
-            </p>
-            <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="singlePost.php" class="btn btn-primary">Read More →</a>
-        </div>
-
-    </div>
 
 
-    <!-- Blog Post -->
-    <div class="card mb-4">
+    @include('frontend.inc.pagination')
 
-        <div class="hover01 column">
-            <div>
-                <figure>
-                    <a href=""><img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""></a>
-                </figure>
-            </div>
-        </div>
-
-
-        <div class="card-body">
-
-            <h2 class="card-title">Post Title</h2>
-            <p>
-                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; Pranto &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-calendar color"></i>&nbsp; January 1, 2018 at 12:00 PM &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-globe color"></i>&nbsp; PHP &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-eye color"></i>&nbsp; 130
-
-            </p>
-            <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="singlePost.php" class="btn btn-primary">Read More →</a>
-        </div>
-
-    </div>
-
-
-    <!-- Blog Post -->
-    <div class="card mb-4">
-
-        <div class="hover01 column">
-            <div>
-                <figure>
-                    <a href=""><img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""></a>
-                </figure>
-            </div>
-        </div>
-
-
-        <div class="card-body">
-
-            <h2 class="card-title">Post Title</h2>
-            <p>
-                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; Pranto &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-calendar color"></i>&nbsp; January 1, 2018 at 12:00 PM &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-globe color"></i>&nbsp; PHP &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-eye color"></i>&nbsp; 130
-
-            </p>
-            <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="singlePost.php" class="btn btn-primary">Read More →</a>
-        </div>
-
-    </div>
-
-
-    <!-- Pagination -->
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item">
-            <a class="page-link" href="#">← Older</a>
-        </li>
-        <li class="page-item disabled">
-            <a class="page-link" href="#">Newer →</a>
-        </li>
-    </ul>
 
 
 @endsection

@@ -11,7 +11,7 @@
         <div class="hover01 column">
             <div>
                 <figure>
-                    <a href=""><img class="img-fluid rounded" src="http://placehold.it/900x300" alt=""></a>
+                    <a href=""><img class="img-fluid rounded" src="{{ $single_post->image }}" alt=""></a>
                 </figure>
             </div>
         </div>
@@ -19,32 +19,17 @@
 
         <div class="card-body">
 
-            <h2 class="card-title">Post Title</h2>
+            <h2 class="card-title">{{ $single_post->title }}</h2>
             <p>
-                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; Pranto &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-calendar color"></i>&nbsp; January 1, 2018&nbsp;&nbsp;&nbsp;
-                <i class="fa fa-globe color"></i>&nbsp; PHP &nbsp;&nbsp;&nbsp;
-                <i class="fa fa-eye color"></i>&nbsp; 130
+                <i class="fa fa-user color" style="color: #aa0000;"></i>&nbsp; {{ $single_post->user->name }} &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-calendar color"></i>&nbsp; {{ \Carbon\Carbon::parse($single_post->created_at)->format('M j, Y, g:i A')  }}&nbsp;&nbsp;
+                <i class="fa fa-globe color"></i>&nbsp; {{ $single_post->category->name }} &nbsp;&nbsp;&nbsp;
+                <i class="fa fa-eye color"></i>&nbsp; {{ $single_post->views }}&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-comment"></i>&nbsp; {{ $single_post->comments }}
 
             </p>
             <hr>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+            <p class="card-text">{{ $single_post->description }}</p>
 
         </div>
 

@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.home');
+Route::namespace('Frontend')->group(function (){
+
+    Route::get('/', 'FrontendController@index')->name('home');
+    Route::get('/{slug}', 'FrontendController@post_details');
+
 });
+
+
+
+
 
 
 

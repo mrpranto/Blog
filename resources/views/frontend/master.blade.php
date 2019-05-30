@@ -16,6 +16,36 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('frontend/css/blog-home.css') }}" rel="stylesheet">
 
+    <style type="text/css">
+
+        figure {
+
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            overflow: hidden;
+        }
+        figure:hover+span {
+            bottom: -36px;
+            opacity: 1;
+        }
+
+
+
+        .hover01 figure img {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+        .hover01 figure:hover img {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+
+    </style>
+
 </head>
 
 <body>
@@ -32,7 +62,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('home') }}">
                         <i class="fa fa-home"></i> Home
                     </a>
                 </li>
