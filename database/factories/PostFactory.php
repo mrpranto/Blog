@@ -8,6 +8,6 @@ $factory->define(\App\Models\Post::class, function (Faker $faker) {
         'category_id' => \App\Models\Category::all()->random()->id,
         'title' => $faker->jobTitle,
         'description' => $faker->realText($maxNbChars = 800),
-        'image' => $faker->imageUrl($width = 900, $height = 480),
+        'image' => $faker->imageUrl($width = 900, $height = 300)
     ];
 });

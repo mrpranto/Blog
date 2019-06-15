@@ -6,7 +6,7 @@
 
     @foreach(\App\Models\Category::orderBy('id','desc')->get() as $category)
 
-    <a href="{{ url('/category/'.$category->slug) }}" class="list-group-item list-group-item-action">
+    <a href="{{ route('category',$category->slug) }}" class="list-group-item list-group-item-action @if(Request::is('category/'.$category->slug)) active @endif">
         <i class="fa fa-angle-double-right color"></i>&nbsp;&nbsp; {{ $category->name }}
     </a>
 
@@ -23,7 +23,7 @@
 
     @foreach(\App\Models\Post::orderBy('id','desc')->limit(5)->get() as $post)
 
-    <a href="{{ url('/'.$post->slug) }}" class="list-group-item list-group-item-action">
+    <a href="{{ route('post',$post->slug) }}" class="list-group-item list-group-item-action">
         <i class="fa fa-chevron-circle-right color"></i>&nbsp;&nbsp; {{ $post->title }}
         {{--<hr>--}}
         {{--<p class="card-text small">{!! str_limit($post->description, $limit = 100, $end = '...') !!}</p>--}}
@@ -42,7 +42,7 @@
 
     @foreach(\App\Models\Post::orderBy('views','desc')->limit(5)->get() as $post)
 
-        <a href="{{ url('/'.$post->slug) }}" class="list-group-item list-group-item-action">
+        <a href="{{ route('post',$post->slug) }}" class="list-group-item list-group-item-action">
             <i class="fa fa-chevron-circle-right color"></i>&nbsp;&nbsp; {{ $post->title }}
             {{--<hr>--}}
             {{--<p class="card-text small">{!! str_limit($post->description, $limit = 100, $end = '...') !!}</p>--}}

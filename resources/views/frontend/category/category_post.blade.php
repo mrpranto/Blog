@@ -15,7 +15,7 @@
         <div class="hover01 column">
             <div>
                 <figure>
-                    <a href="{{ url('/post/'.$post->slug) }}"><img class="img-fluid rounded" src="{{ $post->image }}" alt=""></a>
+                    <a href="{{ route('post',$post->slug) }}"><img class="img-fluid rounded" src="{{ $post->image }}" alt=""></a>
                 </figure>
             </div>
         </div>
@@ -23,7 +23,7 @@
 
         <div class="card-body">
 
-            <a href="{{ url('/post/'.$post->slug) }}" class="text-decoration-none text-dark"> <h2 class="card-title">{{ $post->title }}</h2> </a>
+            <a href="{{ route('post',$post->slug) }}" class="text-decoration-none text-dark"> <h2 class="card-title">{{ $post->title }}</h2> </a>
             <p>
                 <i class="fa fa-user" style="color: #aa0000;"></i>&nbsp; {{ $post->user->name }} &nbsp;&nbsp;&nbsp;
                 <i class="fa fa-calendar"></i>&nbsp; {{ \Carbon\Carbon::parse($post->created_at)->format('M j, Y, g:i A')  }} &nbsp;&nbsp;&nbsp;
@@ -36,7 +36,7 @@
             <p class="card-text">
                 {!! str_limit($post->description, $limit = 250, $end = '...') !!}
             </p>
-            <a href="{{ url('/post/'.$post->slug) }}" class="btn btn-primary btn-sm">Read More →</a>
+            <a href="{{ route('post',$post->slug) }}" class="btn btn-primary btn-sm">Read More →</a>
         </div>
 
     </div>

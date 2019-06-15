@@ -67,12 +67,32 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
+                <li class="nav-item @if(Request::is('contact')) active @endif">
+                    <a class="nav-link" href="{{ route('contact') }}">
                         <i class="fa fa-map-marker-alt"></i>  Contact
                     </a>
                 </li>
             </ul>
+
+            @auth()
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">
+                            <i class="fa fa-user"></i>  {{ auth()->user()->name }}
+                        </a>
+                    </li>
+                    <li class="nav-itemf">
+                        <a class="nav-link " href="{{ route('logout') }}">
+                            <i class="fa fa-sign-out-alt"></i>   Logout
+                        </a>
+                    </li>
+                </ul>
+
+            @endauth
+
+            @guest()
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item @if(Request::is('login')) active @endif">
                     <a class="nav-link" href="{{ route('login') }}">
@@ -85,6 +105,8 @@
                     </a>
                 </li>
             </ul>
+
+                @endguest
         </div>
     </div>
 </nav>
@@ -92,7 +114,7 @@
 <!-- Page Content -->
 <div class="container">
 
-    @if(Request::is('contact'))
+    @if(Request::is('contact') or Request::is('dashboard') )
 
     @yield('content')
 

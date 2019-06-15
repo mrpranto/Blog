@@ -22,20 +22,48 @@
             </div>
             <div class="col-sm-6 pt-3">
 
-                <form action="">
+                <form action="{{ route('storeUserInfo') }}" method="post">
+
+                    @if(Session::get('msg'))
+
+                        <div class="alert alert-success">{{ Session::get('msg') }}</div>
+
+                    @endif
+
+                    @csrf
+
                     <div class="form-group">
-                        <label for="email">Name</label>
-                        <input type="text" class="form-control" id="email">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="name" name="name">
+
+                        @if($errors->has('name'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                        @endif
+
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" name="email">
+
+                        @if($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                        @endif
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Password</label>
-                        <input type="password" class="form-control" id="email">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" name="password">
+
+                        @if($errors->has('password'))
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
                     </div>
 
                     <div class="form-group">

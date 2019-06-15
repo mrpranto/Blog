@@ -70,7 +70,7 @@
                                 <textarea class="form-control" name="" rows="6" placeholder="Comment"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" disabled>
+                            <button type="submit" class="btn btn-primary" @guest() disabled @endguest>
                                 <i class="fas fa-paper-plane"></i> Post
                             </button>
                         </form>

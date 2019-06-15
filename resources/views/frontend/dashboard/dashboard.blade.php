@@ -1,13 +1,13 @@
-@extends("")
+@extends("frontend.master")
 
-@section("title","")
+@section("title","Dashboard")
 
 @section("content")
 
 
 
 
-
+its me
 
 
 
