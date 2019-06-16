@@ -5,7 +5,11 @@
 @section("content")
 
 
+    @auth()
 
+        <script> window.location = '{{ route('dashboard') }}' ;</script>
+
+    @endauth
 
     <div class="card p-4 mt-5">
 
@@ -40,7 +44,8 @@
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="email" name="email">
+                        <input type="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
+                               id="email" name="email">
 
                         @if($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
@@ -51,7 +56,8 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="password" name="password">
+                        <input type="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                               id="password" name="password">
 
                         @if($errors->has('password'))
                             <span class="invalid-feedback" role="alert">

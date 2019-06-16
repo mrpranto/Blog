@@ -77,16 +77,36 @@
             @auth()
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="">
+
+                    {{--<li class="nav-item active">--}}
+                        {{--<a class="nav-link" href="">--}}
+                            {{--<i class="fa fa-tachometer-alt "></i>  Dashboard--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+
+                    {{--<li class="nav-item active">--}}
+                        {{--<a class="nav-link" href="">--}}
+                            {{--<i class="fa fa-user"></i>  {{ auth()->user()->name }}--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+
+                    {{--<li class="nav-itemf">--}}
+                        {{--<a class="nav-link " href="{{ route('logout') }}">--}}
+                            {{--<i class="fa fa-sign-out-alt"></i>   Logout--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-user"></i>  {{ auth()->user()->name }}
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('dashboard') }}"> <i class="fa fa-tachometer-alt "></i>  Dashboard</a>
+                            <a class="dropdown-item" href="#"><i class="fa fa-user"></i>  Profile</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-sign-out-alt"></i>   Logout</a>
+                        </div>
                     </li>
-                    <li class="nav-itemf">
-                        <a class="nav-link " href="{{ route('logout') }}">
-                            <i class="fa fa-sign-out-alt"></i>   Logout
-                        </a>
-                    </li>
+
                 </ul>
 
             @endauth
@@ -145,16 +165,16 @@
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 bg-dark">
+<footer class="py-5 bg-dark align-bottom">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>
     <!-- /.container -->
 </footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="{{ asset('frontend/vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
