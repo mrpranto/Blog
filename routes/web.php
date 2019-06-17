@@ -29,6 +29,8 @@ Route::namespace('Frontend')->group(function (){
     Route::get('/register', 'UsersController@register')->name('register');
     Route::post('/register', 'UsersController@storeUserInfo')->name('storeUserInfo');
 
+    Route::get('/verify/{token}', 'UsersController@verify_email')->name('verify');
+
     Route::group(['middleware' => 'auth'], function (){
 
         Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
